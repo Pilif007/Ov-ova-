@@ -6,8 +6,8 @@
 	<style>
 		.container {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
+			flex-wrap: wrap;
+			justify-content: center;
 			margin-top: 50px;
 		}
 
@@ -16,7 +16,7 @@
 			margin: 10px;
 			border-radius: 5px;
 			border: 1px solid #ccc;
-			width: 300px;
+			width: 200px;
 			font-size: 16px;
 			text-align: center;
 		}
@@ -67,24 +67,149 @@
 			<input type="text" id="input5">
 			<span class="result"></span>
 		</div>
-		<button onclick="checkAnswers()">Odeslat</button>
+		<div>
+			<label for="input6">Slovo 6:</label>
+			<input type="text" id="input6">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input7">Slovo 7:</label>
+			<input type="text" id="input7">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input8">Slovo 8:</label>
+			<input type="text" id="input8">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input9">Slovo 9:</label>
+			<input type="text" id="input9">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input10">Slovo 10:</label>
+			<input type="text" id="input10">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input11">Slovo 11:</label>
+			<input type="text" id="input11">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input12">Slovo 12:</label>
+			<input type="text" id="input12">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input13">Slovo 13:</label>
+			<input type="text" id="input13">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input14">Slovo 14:</label>
+			<input type="text" id="input14">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input15">Slovo 15:</label>
+			<input type="text" id="input15">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input16">Slovo 16:</label>
+			<input type="text" id="input16">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input17">Slovo 17:</label>
+			<input type="text" id="input17">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input18">Slovo 18:</label>
+			<input type="text" id="input18">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input19">Slovo 19:</label>
+			<input type="text" id="input19">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input20">Slovo 20:</label>
+			<input type="text" id="input20">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input21">Slovo 21:</label>
+			<input type="text" id="input21">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input22">Slovo 22:</label>
+			<input type="text" id="input22">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input23">Slovo 23:</label>
+			<input type="text" id="input23">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input24">Slovo 24:</label>
+			<input type="text" id="input24">
+			<span class="result"></span>
+		</div>
 	</div>
 
 	<script>
-		function checkAnswers() {
-			const inputs = document.querySelectorAll('input[type="text"]');
-			const correctAnswers = ["paradox", "dresscode", "a", "b", "c"];
+		// zde jsou uložena správná řešení
+		const solutions = {
+			'input1': 'cz01',
+			'input2': 'cz02',
+			'input3': 'cz03',
+			'input4': 'cz04',
+			'input5': 'cz05',
+			'input6': 'cz06',
+			'input7': 'cz07',
+			'input8': 'cz08',
+			'input9': 'cz09',
+			'input10': 'cz10',
+			'input11': 'en01',
+			'input12': 'en02',
+			'input13': 'en03',
+			'input14': 'en04',
+			'input15': 'en05',
+			'input16': 'en06',
+			'input17': 'en07',
+			'input18': 'en08',
+			'input19': 'en09',
+			'input20': 'en10',
+			'input21': 'en11',
+			'input22': 'en12',
+			'input23': 'en13',
+			'input24': 'en14'
+		};
 
-			inputs.forEach((input, index) => {
-				if (input.value.toLowerCase() === correctAnswers[index]) {
-					input.nextElementSibling.innerHTML = "Správně!";
-					input.nextElementSibling.className = "correct";
+		// přidáme událost pro každý input
+		for (let i = 1; i <= 24; i++) {
+			const inputId = `input${i}`;
+			const inputElement = document.getElementById(inputId);
+			const resultElement = inputElement.nextElementSibling;
+
+			inputElement.addEventListener('input', function () {
+				if (this.value.toLowerCase() === solutions[inputId]) {
+					resultElement.textContent = '✓';
+					resultElement.style.color = 'green';
 				} else {
-					input.nextElementSibling.innerHTML = "Špatně!";
-					input.nextElementSibling.className = "incorrect";
+					resultElement.textContent = '✗';
+					resultElement.style.color = 'red';
 				}
 			});
 		}
 	</script>
 </body>
+
 </html>
