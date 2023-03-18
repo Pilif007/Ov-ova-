@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Testovací stránka</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin: 50px;
+		}
+		h1 {
+			font-size: 2em;
+			margin-bottom: 20px;
+		}
+		input[type=text] {
+			padding: 10px;
+			font-size: 1.2em;
+			border: none;
+			border-bottom: 2px solid #ccc;
+			margin-bottom: 20px;
+		}
+		button {
+			padding: 10px;
+			font-size: 1.2em;
+			background-color: #009900;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+		#result {
+			font-size: 2em;
+			margin-top: 50px;
+		}
+		#result.success {
+			color: green;
+		}
+		#result.failure {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Vygenerovaná stránka</h1>
+	<input type="text" id="input" placeholder="Zadejte správné slovo...">
+	<button onclick="check()">Ověřit</button>
+	<div id="result"></div>
+
+	<script>
+		function check() {
+			var input = document.getElementById("input").value;
+			if (input.toLowerCase() === "paradox") {
+				document.getElementById("result").innerHTML = "Správně!";
+				document.getElementById("result").className = "success";
+			} else {
+				document.getElementById("result").innerHTML = "Špatně!";
+				document.getElementById("result").className = "failure";
+			}
+		}
+	</script>
+</body>
+</html>
