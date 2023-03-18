@@ -1,79 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Testovací stránka</title>
 	<meta charset="UTF-8">
-	<title>01</title>
 	<style>
-		body {
-			font-family: Arial, sans-serif;
-			text-align: center;
-			margin: 50px;
-		}
-		h1 {
-			font-size: 2em;
-			margin-bottom: 20px;
-		}
-		input[type=text] {
-			padding: 10px;
-			font-size: 1.2em;
-			border: none;
-			border-bottom: 2px solid #ccc;
-			margin-bottom: 20px;
-		}
-		button {
-			padding: 10px;
-			font-size: 1.2em;
-			background-color: #009900;
-			color: #fff;
-			border: none;
-			cursor: pointer;
-		}
-		#result {
-			font-size: 2em;
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 			margin-top: 50px;
 		}
-		#result.success {
+
+		input[type="text"] {
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			width: 300px;
+			font-size: 16px;
+			text-align: center;
+		}
+
+		button {
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			background-color: #007bff;
+			color: #fff;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.correct {
 			color: green;
 		}
-		#result.failure {
+
+		.incorrect {
 			color: red;
 		}
 	</style>
 </head>
 <body>
-	<h1>01</h1>
-	<input type="text" id="input" placeholder="Zadejte správné slovo...">
-	<button onclick="check()">Ověřit</button>
-	<div id="result"></div>
+	<div class="container">
+		<div>
+			<label for="input1">Slovo 1:</label>
+			<input type="text" id="input1">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input2">Slovo 2:</label>
+			<input type="text" id="input2">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input3">Slovo 3:</label>
+			<input type="text" id="input3">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input4">Slovo 4:</label>
+			<input type="text" id="input4">
+			<span class="result"></span>
+		</div>
+		<div>
+			<label for="input5">Slovo 5:</label>
+			<input type="text" id="input5">
+			<span class="result"></span>
+		</div>
+		<button onclick="checkAnswers()">Odeslat</button>
+	</div>
 
 	<script>
-		function check() {
-			var input = document.getElementById("input").value;
-			if (input.toLowerCase() === "paradox") {
-				document.getElementById("result").innerHTML = "Správně!";
-				document.getElementById("result").className = "success";
-			} else {
-				document.getElementById("result").innerHTML = "Špatně!";
-				document.getElementById("result").className = "failure";
-			}
-		}
-	</script>
-	
-	<h1>02</h1>
-	<input type="text" id="input" placeholder="Zadejte správné slovo...">
-	<button onclick="check()">Ověřit</button>
-	<div id="result"></div>
+		function checkAnswers() {
+			const inputs = document.querySelectorAll('input[type="text"]');
+			const correctAnswers = ["paradox", "dresscode", "a", "b", "c"];
 
-	<script>
-		function check() {
-			var input = document.getElementById("input").value;
-			if (input.toLowerCase() === "dresscode") {
-				document.getElementById("result").innerHTML = "Správně!";
-				document.getElementById("result").className = "success";
-			} else {
-				document.getElementById("result").innerHTML = "Špatně!";
-				document.getElementById("result").className = "failure";
-			}
+			inputs.forEach((input, index) => {
+				if (input.value.toLowerCase() === correctAnswers[index]) {
+					input.nextElementSibling.innerHTML = "Správně!";
+					input.nextElementSibling.className = "correct";
+				} else {
+					input.nextElementSibling.innerHTML = "Špatně!";
+					input.nextElementSibling.className = "incorrect";
+				}
+			});
 		}
 	</script>
 </body>
